@@ -4,9 +4,9 @@ const $dropdown = $(".custom-dropdown");
 const $selectedOption = $dropdown.find(".selected-option");
 const $dropdownOptions = $(".dropdown-options");
 $select.find("option").each(function () {
-    var value = $(this).val();
-    var text = $(this).text();
-    var image = $(this).data("image");
+    let value = $(this).val();
+    let text = $(this).text();
+    let image = $(this).data("image");
 
     if (image) {
         $dropdownOptions.append(
@@ -18,15 +18,16 @@ $select.find("option").each(function () {
 });
 
 // Show dropdown options on click
-$dropdown.click(function () {
+$dropdown.click(function (e) {
+    e.stopPropagation();
     $dropdownOptions.toggle();
 });
 
 // Handle option selection
 $dropdownOptions.on("click", "li", function () {
-    var selectedImage = $(this).find("img").attr("src");
+    let selectedImage = $(this).find("img").attr("src");
 
-    $selectedOption.html(`<img src="${selectedImage}" alt="${selectedText} Flag"> <img class="dropdown-arr-langs" src="assets/images/dropdown-arr.png" alt="" >`);
+    $selectedOption.html(`<img src="${selectedImage}"> <img class="dropdown-arr-langs" src="assets/images/dropdown-arr.png" alt="" >`);
     $dropdownOptions.hide();
 
 
