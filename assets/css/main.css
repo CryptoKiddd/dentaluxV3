@@ -1,4 +1,100 @@
 
+@font-face {
+  font-family: 'f-regular';
+  src: url('../fonts/HelveticaNeueLTGEO-55Roman.eot');
+  src: url('../fonts/HelveticaNeueLTGEO-55Roman.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEO-55Roman.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEO-55Roman.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEO-55Roman.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'f-heavy';
+  src: url('../fonts/HelveticaNeueLTGEO-85Heavy.eot');
+  src: url('../fonts/HelveticaNeueLTGEO-85Heavy.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEO-85Heavy.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEO-85Heavy.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEO-85Heavy.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'f-black';
+  src: url('../fonts/HelveticaNeueLTGEO-95Black.eot');
+  src: url('../fonts/HelveticaNeueLTGEO-95Black.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEO-95Black.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEO-95Black.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEO-95Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'f-medium';
+  src: url('../fonts/HelveticaNeueLTGEO-65Medium.eot');
+  src: url('../fonts/HelveticaNeueLTGEO-65Medium.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEO-65Medium.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEO-65Medium.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEO-65Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'f-bold';
+  src: url('../fonts/HelveticaNeueLTGEO-75Bold.eot');
+  src: url('HelveticaNeueLTGEO-75Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEO-75Bold.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEO-75Bold.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEO-75Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'f-regular-caps';
+  src: url('../fonts/HelveticaNeueLTGEOCaps-55Rmn.eot');
+  src: url('../fonts/HelveticaNeueLTGEOCaps-55Rmn.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEOCaps-55Rmn.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEOCaps-55Rmn.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEOCaps-55Rmn.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'f-bold-caps';
+  src: url('../fonts/HelveticaNeueLTGEOCaps-75Bold.eot');
+  src: url('../fonts/HelveticaNeueLTGEOCaps-75Bold.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEOCaps-75Bold.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEOCaps-75Bold.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEOCaps-75Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'f-medium-caps';
+  src: url('../fonts/HelveticaNeueLTGEOCaps-65Med.eot');
+  src: url('../fonts/HelveticaNeueLTGEOCaps-65Med.eot?#iefix') format('embedded-opentype'),
+      url('../fonts/HelveticaNeueLTGEOCaps-65Med.woff2') format('woff2'),
+      url('../fonts/HelveticaNeueLTGEOCaps-65Med.woff') format('woff'),
+      url('../fonts/HelveticaNeueLTGEOCaps-65Med.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+
 
 :root {
   --primary-color: #103974;
@@ -208,7 +304,30 @@ a {
   mask-image: url('../images/linkedin.svg');
  
 }
-
+.whatsapp{
+  width: 16px;
+  height: 16px;
+  -webkit-mask-image: url('../images/whatsapp.svg');
+  mask-image: url('../images/whatsapp.svg');
+}
+.location{
+  width: 16px;
+  height: 16px;
+  -webkit-mask-image: url('../images/location.svg');
+  mask-image: url('../images/location.svg');
+}
+.phone{
+  width: 16px;
+  height: 16px;
+  -webkit-mask-image: url('../images/phone.svg');
+  mask-image: url('../images/phone.svg');
+}
+.mail{
+  width: 16px;
+  height: 16px;
+  -webkit-mask-image: url('../images/mail.svg');
+  mask-image: url('../images/mail.svg');
+}
 
 
 .navigation{
@@ -218,6 +337,7 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 61px;
 }
 .logo{
   max-width: 306px;
@@ -248,6 +368,7 @@ nav ul{
 }
 .nav-top li a{
   font-size: 18px;
+  font-family: 'f-regular';
 }
 .nav-bottom {
   background-color: white;
@@ -257,6 +378,7 @@ nav ul{
   align-items: center;
   border-radius: 50px;
   border:1px solid #D9E9FF;
+  font-family: 'f-regular-caps';
   
 }
 
@@ -309,5 +431,193 @@ nav li:hover{
 }
 
 
+.custom-dropdown {
+  position: relative;
+  display: flex;
+  width: 50px;
+  cursor: pointer;
+  border: none;
+  border-radius: 50px;
+}
+
+.selected-option {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50px;
+
+}
+
+.selected-option img {
+  width: 26px;
+  height: 26px;
+  margin-right: 8px;
+}
+
+.dropdown-options {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 10;
+}
+.selected-option  .dropdown-arr-langs{
+  width: 8.7px;
+  height: 4.35px;
+}
+.dropdown-options li {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.dropdown-options li:hover {
+  background: #f0f0f0;
+}
+
+.dropdown-options img {
+  width: 20px;
+  height: 14px;
+  margin-right: 8px;
+}
+
+/* 
+end of navigation
+*/
 
 
+
+/* 
+
+text page
+*/
+
+.textpage{
+  padding-inline: var(--fullhd-padding);
+}
+.textpage header p{
+  font-size: 46px;
+  color: var(--header-color);
+  padding-top: 70px;
+  padding-bottom: 40px;
+font-family: 'f-regular-caps';
+}
+.textpage main{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.textpage-text{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left:2px solid #B9B9B9 ;
+  padding: 5px 0px;
+
+  padding-left: 80px;
+  color: var(--header-color);
+  max-width: 1012px;
+  width: 100%;
+  font-size: 16px;
+}
+.textpage-text{
+  font-family: 'f-regular';
+}
+.textpage-img{
+  width: 398px;
+  height: 447px;
+}
+.textpage-lists{
+  display: flex;
+  padding-left: 80px;
+  padding-top: 56px;
+  gap: 65px;
+  padding-bottom: 55px;
+  
+}
+.textpage-lists li{
+  margin-bottom: 7px;
+  font-size: 18px;
+  font-family: 'f-regular';
+  color: var(--header-color);
+}
+.square-bullet{
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  background: var(--primary-color);
+  opacity: 0.5;
+  margin-right: 15px;
+}
+
+.textpage aside {
+  color: var(--header-color);
+  max-width: 1012px;
+  width: 100%;
+  padding-left: 80px;
+  font-size: 18px;
+  padding-bottom: 30px;
+  font-family: 'f-regular';
+}
+.textpage aside h2{
+  color: var(--header-color);
+  font-size: 18px;
+  font-family: 'f-bold-caps';
+  padding-bottom: 5px;
+}
+
+footer{
+  display: flex;
+  margin-top: 120px;
+  padding-inline: var(--fullhd-padding);
+  padding-left: 61px;
+  height: 434px;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--secondary-color);
+}
+footer header{
+  color: var(--primary-color);
+  font-family: 'f-medium-caps';
+  margin-bottom: 12px;
+  /* margin-top: -42px; */
+}
+footer ul{
+  color: var(--header-color);
+  font-family: 'f-regular';
+}
+footer ul li{
+  padding: 5px 0;
+  border-bottom: 1px solid #E8E8E8;
+  position: relative;
+}
+.footer-icons-list a{
+  display: flex;
+  gap: 23px;
+}
+.footer-socials{
+  display: flex;
+  gap: 23px;
+}
+.footer-logo{
+  margin-bottom: 33px;
+}
+.footer-list{
+  min-height: 120px;
+  width: fit-content;
+  flex: 1;
+}
+.footer-style-li{
+  padding: 14.7px 0;
+}
+.footer-wa-icon{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -30px;}
