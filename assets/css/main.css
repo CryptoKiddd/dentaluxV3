@@ -104,6 +104,7 @@
   --text-color:#9F9F9F;
   
   --fullhd-padding: 140px;
+  --border-color:#B9B9B9;
 
 }
 
@@ -651,7 +652,9 @@ footer ul li{
     height: 20.4px;
   }
 
-  .servicepage{
+  .servicepage,
+  .projectpage
+  {
     padding-inline: var(--fullhd-padding);
 
   }
@@ -669,7 +672,7 @@ footer ul li{
     border: 1px solid #9F9F9F;
     border-left: none;
   }
-  .services-wrapper{
+  .services-wrapper, .projects-wrapper{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -751,4 +754,113 @@ footer ul li{
  .pag-active{
   text-decoration: underline;
   color: var(--primary-color);
+ }
+
+ .projectpage header p{
+  font-size: 46px;
+  color: var(--header-color);
+  font-family: 'f-regular-caps';
+  padding-top: 65px;
+  padding-bottom: 65px;
+
+
+ }
+
+ .projects{
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 100px;
+  justify-content: space-between;
+ }
+ .projects li{
+  
+  width: 40%;
+ 
+ }
+ .project-img{
+  box-sizing: border-box;
+  position: relative;
+  max-width: 703px;
+  height: 450px;
+  width: 100%;
+  padding: 10px;
+  transition: 350ms ease;
+
+ }
+
+ .project-img img{
+  transition: 350ms ease;
+
+ }
+ .project:hover .project-img img{
+  border-radius: 50px;
+ }
+ 
+ 
+ .project-img::before,
+ .project-img::after{
+  content: "";
+  position: absolute;
+  background:var(--border-color); 
+  z-index: 2; 
+ }
+ .project-img::before{
+  top: -20px;
+  left:0;
+  height:calc(100% + 90px);
+  width: 1px
+
+ }
+ .project-img::after{
+  top: -20px;
+  right:0;
+  height:calc(100% + 90px);
+  width: 1px
+
+ }
+ .project-img span:nth-child(1){
+  position: absolute;
+  background:var(--border-color); 
+  z-index: 2; 
+  top:0;
+  left:-20px;
+  width:calc(100% + 40px);
+  height: 1px
+
+ }
+ .project-img span:nth-child(2){
+  position: absolute;
+  background:var(--border-color); 
+  z-index: 2; 
+  bottom:0;
+  left:-20px;
+  width:calc(100% + 40px);
+  height: 1px
+ }
+ .project-desc{
+  display: flex;
+  width: 100%;
+  align-items: start;
+  justify-content: space-between;
+  padding: 20px;
+ }
+ .project-desc p{
+  width: 80%;
+  font-family: 'f-regular-caps';
+  color: var(--text-color);
+  transition: 350ms ease-in;
+ }
+ .project-arr{
+  width: 19.65px;
+  height: 19.65px;
+  margin-right: 40px;
+  transition: 250ms ease;
+ }
+ .project:hover .project-desc p{
+  color: var(--primary-color);
+
+ }
+ .project:hover .project-arr{
+  margin: 0;
+  width: 25px;
  }
