@@ -42,3 +42,22 @@ $(document).click(function (e) {
 
 // Hide original select
 $select.hide();
+
+
+
+let heroCarousel = $("#hero-carousel")
+heroCarousel.bxSlider({
+    mode: 'vertical',
+    // controls:false,
+    controls: false,   // Hides prev/next arrows
+    pager: false, 
+    slideMargin: 0
+  });
+  $('#hero-prev').click(function() {
+    heroCarousel.goToPrevSlide();
+  });
+
+  $('#hero-next').click(function() {
+    heroCarousel.goToNextSlide();
+  });
+ 

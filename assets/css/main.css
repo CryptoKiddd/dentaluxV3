@@ -293,6 +293,25 @@ a {
   mask-position: center;
   cursor: pointer;
 }
+
+.arr-down-icon{
+  background-color: white;
+  rotate: 90deg;
+
+  width: 32.5px;
+  height: 34.5px;
+  -webkit-mask-image: url('../images/arr-down.svg');
+  mask-image: url('../images/arr-down.svg');
+}
+.arr-up-icon{
+  width: 32.5px;
+  background-color: white;
+  rotate: 90deg;
+
+  height: 34.5px;
+  -webkit-mask-image: url('../images/arr-up.svg');
+  mask-image: url('../images/arr-up.svg');
+}
 .download-icon{
   width: 32.5px;
   height: 34.5px;
@@ -516,6 +535,87 @@ nav li:hover{
 
 /* 
 end of navigation
+*/
+
+
+/* 
+
+main page start
+*/
+.bx-wrapper {
+  box-shadow: none !important; 
+  border: none !important;
+}
+
+.bxslider {
+  box-shadow: none !important;
+
+}
+.hero-slider-wrapper{
+  width: 100%;
+  position: relative;
+  height: 624px;
+}
+.hero-carousel-controls{
+  position: absolute;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  right: 0;
+  top: 50%;
+transform: translateX(-50%);
+  right: var(--fullhd-padding);
+}
+
+
+.hero-carousel-item{
+  position: relative;
+  width: 100%;
+  height: 624px;
+}
+
+.hero-carousel-item header{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  padding-left: var(--fullhd-padding);
+  padding-top: 120px;
+  align-items: start;
+  gap: 25px;
+  max-width: 572px;
+  width: 100%;
+  top: 0;
+  z-index: 2;
+  color: white;
+}
+.hero-carousel-item header h1{
+  font-family: "f-regular-caps";
+}
+.hero-carousel-item header p{
+  font-family: "f-regular";
+}
+.hero-carousel-item header a{
+  font-family: "f-regular-caps";
+  text-decoration: underline;
+}
+.carousel-overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  opacity: 0.2;
+}
+
+
+
+
+
+/* 
+
+main page end
 */
 
 
@@ -939,3 +1039,4 @@ gap: 20px;
 .achievement:hover .download-icon{
   background-color: var(--primary-color);
 }
+
