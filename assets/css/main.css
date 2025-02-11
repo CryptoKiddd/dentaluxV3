@@ -119,11 +119,13 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 
 }
 
 body {
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 
 }
 
@@ -290,6 +292,18 @@ a {
   -webkit-mask-position: center;
   mask-position: center;
   cursor: pointer;
+}
+.download-icon{
+  width: 32.5px;
+  height: 34.5px;
+  -webkit-mask-image: url('../images/download.svg');
+  mask-image: url('../images/download.svg');
+}
+.pdf-icon{
+  width: 30px;
+  height: 36px;
+  -webkit-mask-image: url('../images/pdf.svg');
+  mask-image: url('../images/pdf.svg');
 }
 .fb{
   width: 11px;
@@ -672,8 +686,12 @@ footer ul li{
     border: 1px solid #9F9F9F;
     border-left: none;
   }
-  .services-wrapper, .projects-wrapper{
+  .services-wrapper,
+   .projects-wrapper,
+   .achievements-wrapper
+   {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     gap: 50px;
@@ -864,3 +882,60 @@ footer ul li{
   margin: 0;
   width: 25px;
  }
+.achievements{display: flex;
+  width: 100%;
+flex-direction: column;
+gap: 20px;
+
+}
+.achievement{
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+ 
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 0px;
+  padding-left: 50px;
+  transition: 350ms ease;
+
+}
+.achievement-desc{
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  font-family: 'f-regular-caps';
+  color:var(--text-color);
+  transition: 750ms ease;
+}
+
+ .achievement:hover .achievement-desc{
+  color: var(--primary-color);
+  margin-left: 50px;
+ }
+ 
+ .achievement::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 50px;
+  background-color: var(--primary-color);
+  
+  /* Initially hidden */
+  opacity: 0;
+  transform: translateX(-100%);
+  
+  /* Smooth transition */
+  transition: transform 0.35s ease-out, opacity 0.35s ease-in;
+}
+
+.achievement:hover::before {
+  opacity: 1; /* Make it visible */
+  transform: translateX(0%); /* Move it into view */
+}
+.achievement:hover .download-icon{
+  background-color: var(--primary-color);
+}
