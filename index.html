@@ -12,7 +12,7 @@
 </head>
 
 <body>
-
+    <div class="overlay1"></div>
     <header class="navigation">
         <a href="/" class="logo">
             <img src="assets/images/logo.png" alt="">
@@ -69,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="call-req">
+                        <a class="call-req" id="openModal" >
 
                             ზარის მოთხოვნა
                         </a>
@@ -88,10 +88,16 @@
                 </div>
                 <ul class="dropdown-options">
                     <li data-value="ge">
-                        <img src="assets/images/georgia.png" alt="Georgia Flag">
+                       <a href="">
+
+                           <img src="assets/images/georgia.png" alt="Georgia Flag">
+                       </a>
                     </li>
                     <li data-value="us">
-                        <img src="assets/images/usa.png" alt="USA Flag">
+                        <a href=""> 
+
+                            <img src="assets/images/georgia.png" alt="USA Flag">
+                        </a> 
                     </li>
                 </ul>
             </div>
@@ -111,6 +117,50 @@
         </div>
 
     </header>
+    <form id="popupForm" class="modal">
+        <div class="close">
+
+            <img class="close-btn" src="assets/images/close.png" /> 
+        </div>
+
+        <main>
+
+            <div class="modal-left">
+    
+                <input type="text" placeholder="სახელი" name="" id="">
+                <input type="text" placeholder="გვარი" name="" id="">
+                <input type="email" placeholder="ელფოსტა" name="" id="">
+                <button class="submit-btn">
+                    გაგზავნა <span>&rarr;</span>
+                </button>
+            </div>
+           <div class="modal-right">
+            <label for="">
+    
+                <input type="radio" name="reason" id="">
+                სახმელეთო მომსახურება
+    
+            </label>
+            <label for="">
+    
+                <input type="radio" name="reason" id="">
+                საზღვაო მომსახურება
+    
+            </label>
+            <label for="">
+    
+                <input type="radio" name="reason" id="">
+                ტრენინგ ცენტრი 
+    
+            </label>
+           
+           </div>
+        </main>
+
+
+    
+
+    </form>
 
     <div class="hero-slider-wrapper">
         <ul class="hc" id="hero-carousel">
@@ -215,6 +265,12 @@
         </main>
 
     </section>
+
+   
+    
+
+
+
     <section class="servicepage mainpage-services">
         <header>
             <p>
@@ -299,6 +355,44 @@
         </div>
 
     
+    </section>
+
+
+    <section class="recognitions">
+        <header>
+            <p>
+                აღიარებები
+            </p>
+        </header>
+        <main class="recognitions-wrapper">
+
+            <div class="slider1">
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+                <div class="slide"><img src="assets/images/adidas.png"> <p>Adidas</p></div>
+              
+                
+                
+    
+              </div>
+              <img class="recog-next" src="assets/images/service-arr.png" alt="">
+              <img  class="recog-prev" src="assets/images/service-arr.png" alt="">
+
+              <a class="see-more" href="achievments.html">გაიგე მეტი  <div class="icon link-arr-black-icon"></div></a>
+            </main>
+
     </section>
 
 
@@ -420,7 +514,7 @@
 
 
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
 
     <script src="assets/js/owl.carousel.min.js"></script>

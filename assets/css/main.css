@@ -104,7 +104,7 @@
   --text-color:#9F9F9F;
   
   --fullhd-padding: 140px;
-  --border-color:#B9B9B9;
+  --border-color:#D3D3D3;
 
 }
 
@@ -302,15 +302,7 @@ a {
   -webkit-mask-image: url('../images/arr-down.svg');
   mask-image: url('../images/arr-down.svg');
 }
-.arr-up-icon{
-  width: 18.65px;
-  background-color: white;
-  rotate: 90deg;
 
-  height:  23.65px;
-  -webkit-mask-image: url('../images/arr-up.svg');
-  mask-image: url('../images/arr-up.svg');
-}
 .download-icon{
   width: 32.5px;
   height: 34.5px;
@@ -512,12 +504,13 @@ nav li:hover{
   position: absolute;
   top: 100%;
   left: 0;
-  width: 100%;
+  width: 170%;
   background: #fff;
   list-style: none;
-  padding: 0;
+  padding: 8px;
   margin: 0;
   z-index: 10;
+  border-radius: 5px;
 }
 .selected-option  .dropdown-arr-langs{
   width: 8.7px;
@@ -662,9 +655,199 @@ color: var(--header-color);
   width: 32.21px;
   height: 32.21px;
  }
+ .custom-carousel {
+  display: flex;
+  justify-content: center; /* Centers everything */
+  align-items: center;
+  position: relative;
+}
+
+.slide {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.6; /* Default dimmed */
+  position: relative;
+  margin: 0 10px; /* Space between slides */
+}
+
+/* Active Slide (Largest - First Slide Initially) */
+.active-slide {
+  transform: scale(1.4); 
+  opacity: 1;
+  z-index: 10;
+}
+
+/* Second & Fourth Slide (Medium Size) */
+.smaller-slide {
+  transform: scale(1.1);
+  opacity: 0.8;
+  z-index: 5;
+}
+
+/* Third & Fifth Slide (Smallest) */
+.smallest-slide {
+  transform: scale(0.8);
+  opacity: 0.5;
+  z-index: 2;
+}
 
 
 
+
+/* Adjacent Slides - Medium Size */
+
+
+
+
+
+
+
+
+.recognitions{
+  padding-inline: var(--fullhd-padding);
+  
+}
+
+.recognitions header{
+  font-family: 'f-regular-caps';
+  font-size: 46px;
+  color: var(--header-color);
+  padding-top: 100px;
+  padding-bottom: 70px;
+}
+.slider1{
+  width: 100%;
+  padding-inline:130px;
+}
+.slider1 .slide{
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+
+  
+
+  /* padding-inline: 20px; */
+
+}
+.slider1 .slide p{
+  padding-right: 65px;
+  font-family: 'f-regular-caps';
+  color: var(--text-color);
+}
+.slider1 .slide img{
+
+  
+width: 140px;
+height: 90px;
+padding-right: 65px;
+
+ 
+border-right: 1px solid var(--border-color);
+}
+.recognitions-wrapper{
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 70px;
+}
+.recog-next{
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  width: 24.24px;
+  height: 48.49px;
+  top: 35px;
+  cursor: pointer;
+
+}
+
+.recog-prev{
+  position: absolute;
+  z-index: 2;
+  cursor: pointer;
+  top: 35px;
+  left: 0;
+  width: 24.24px;
+  height: 48.49px;
+  rotate: 180deg;
+
+}
+.recognitions-wrapper .see-more{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.overlay1{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background: var(--primary-color);
+  opacity: 0.9; /* Blue blurry background */
+  backdrop-filter: blur(5px);
+  display: none;
+  transition: 0.5s ease;
+  z-index: 5;
+}
+
+.modal{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: -100%;
+  left: 50%; /* Initially off-screen */
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+
+  max-width: 1280px;
+  width: 100%;
+  height: 585px;
+  text-align: center;
+  transition: 0.4s ease;
+  z-index: 6;
+}
+.modal.show {
+  top: 50%;
+}
+.modal main{
+  display: flex;
+  padding-inline: var(--fullhd-padding);
+  padding-top: 90px;
+  justify-content: space-between;
+}
+.modal main div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+
+}
+.modal-left input{
+width: 301px;
+height: 38px;
+border-radius: 50px;
+background-color: var(--secondary-color);
+margin-bottom: 28px;
+font-family: 'f-regular';
+
+}
+.modal-left input::placeholder{
+  padding-left: 30px;
+}
+.close{
+  width: 100%;
+  border-bottom: 1px solid var(--border-color);
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+.close-btn{
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
 
 /* 
 
@@ -1110,11 +1293,9 @@ gap: 20px;
   width: 50px;
   background-color: var(--primary-color);
   
-  /* Initially hidden */
   opacity: 0;
   transform: translateX(-100%);
   
-  /* Smooth transition */
   transition: transform 0.35s ease-out, opacity 0.35s ease-in;
 }
 

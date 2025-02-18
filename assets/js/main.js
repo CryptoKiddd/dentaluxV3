@@ -59,5 +59,66 @@ heroCarousel.bxSlider({
 
   $('#hero-next').click(function() {
     heroCarousel.goToNextSlide();
-  });
- 
+  })
+  
+  ;
+
+
+  const recognitionsCarousel = $('.slider1');
+
+  if (recognitionsCarousel.length) {
+      const totalSlides = recognitionsCarousel.children('.slide').length;
+      const slidesToShow = Math.min(7, totalSlides); // Ensure it doesn't exceed total slides
+  
+      recognitionsCarousel.bxSlider({
+          slideWidth: 218,
+          minSlides: slidesToShow,
+          maxSlides: slidesToShow,
+          moveSlides: 1, // Move one slide at a time
+          infiniteLoop: true,
+          controls: false,  
+          pager: false,
+      });
+      $('.recog-prev').click(function() {
+        recognitionsCarousel.goToPrevSlide();
+      });
+    
+      $('.recog-next').click(function() {
+        recognitionsCarousel.goToNextSlide();
+      })
+      
+  }
+
+
+
+  
+
+
+
+//   let recognitionsCarousel = $(".slider1'")
+
+
+
+//     recognitionsCarousel.bxSlider({
+//         slideWidth: 200,
+//         minSlides: 2,
+//         maxSlides: 3,
+//         slideMargin: 10
+//       });
+$(document).ready(function(){
+    $("#openModal").click(function(){
+        $("body").css("overflow", "hidden"); // Disable scrolling
+        $(".overlay1").show(); // Show blue blurry background
+        $("#popupForm").addClass("show"); // Move modal to 50%
+    });
+
+    $(".close-btn, .overlay").click(function(){
+        $("body").css("overflow", "auto"); // Enable scrolling
+        $(".overlay1").hide(); // Hide background
+        $("#popupForm").removeClass("show"); // Move modal off-screen
+    });
+
+    $(".submit-btn").click(function(){
+        alert("Form Submitted!");
+    });
+});
