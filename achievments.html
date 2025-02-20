@@ -12,6 +12,7 @@
 </head>
 
 <body>
+    <div class="overlay1"></div>
     <header class="navigation">
         <a href="/" class="logo">
             <img src="assets/images/logo.png" alt="">
@@ -68,7 +69,7 @@
                         </a>
                     </li>
                     <li>
-                        <a class="call-req">
+                        <a class="call-req" id="openModal" >
 
                             ზარის მოთხოვნა
                         </a>
@@ -87,10 +88,16 @@
                 </div>
                 <ul class="dropdown-options">
                     <li data-value="ge">
-                        <img src="assets/images/georgia.png" alt="Georgia Flag">
+                       <a href="">
+
+                           <img src="assets/images/georgia.png" alt="Georgia Flag">
+                       </a>
                     </li>
                     <li data-value="us">
-                        <img src="assets/images/usa.png" alt="USA Flag">
+                        <a href=""> 
+
+                            <img src="assets/images/georgia.png" alt="USA Flag">
+                        </a> 
                     </li>
                 </ul>
             </div>
@@ -110,6 +117,57 @@
         </div>
 
     </header>
+    <form id="popupForm" class="modal">
+        <div class="close">
+
+            <img class="close-btn" src="assets/images/close.png" /> 
+        </div>
+
+        <main>
+
+            <div class="modal-left">
+    
+                <input type="text" placeholder="სახელი" name="" id="">
+                <input type="text" placeholder="გვარი" name="" id="">
+                <input type="email" placeholder="ელფოსტა" name="" id="">
+                <button class="submit-btn">
+                     <span>გაგზავნა</span>
+                     <div class="icon pag-arr-right"></div>
+                </button>
+            </div>
+           <div class="modal-right">
+            <p>
+                რასთან დაკავშირებით გვიკავშირდებით?
+            </p>
+            <div class="modal-right-labels-wrapper">
+
+                <label for="reason1">
+        
+                    <input type="radio" name="reason" id="reason1">
+                    სახმელეთო მომსახურება
+        
+                </label>
+                <label for="reason2">
+        
+                    <input type="radio" name="reason" id="reason2">
+                    საზღვაო მომსახურება
+        
+                </label>
+                <label for="reason3">
+        
+                    <input type="radio" name="reason" id="reason3">
+                    ტრენინგ ცენტრი 
+        
+                </label>
+               
+            </div>
+           </div>
+        </main>
+
+
+    
+
+    </form>
     <section class="servicepage">
         <header>
             <p>

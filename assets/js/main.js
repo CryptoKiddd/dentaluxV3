@@ -46,52 +46,54 @@ $select.hide();
 
 
 let heroCarousel = $("#hero-carousel")
-heroCarousel.bxSlider({
-    mode: 'vertical',
-    // controls:false,
-    controls: false,   // Hides prev/next arrows
-    pager: false, 
-    slideMargin: 0
-  });
-  $('#hero-prev').click(function() {
-    heroCarousel.goToPrevSlide();
-  });
-
-  $('#hero-next').click(function() {
-    heroCarousel.goToNextSlide();
-  })
-  
-  ;
+if (heroCarousel.length) {
 
 
-  const recognitionsCarousel = $('.slider1');
-
-  if (recognitionsCarousel.length) {
-      const totalSlides = recognitionsCarousel.children('.slide').length;
-      const slidesToShow = Math.min(7, totalSlides); // Ensure it doesn't exceed total slides
-  
-      recognitionsCarousel.bxSlider({
-          slideWidth: 218,
-          minSlides: slidesToShow,
-          maxSlides: slidesToShow,
-          moveSlides: 1, // Move one slide at a time
-          infiniteLoop: true,
-          controls: false,  
-          pager: false,
-      });
-      $('.recog-prev').click(function() {
-        recognitionsCarousel.goToPrevSlide();
-      });
+    heroCarousel.bxSlider({
+        mode: 'vertical',
+        // controls:false,
+        controls: false,   // Hides prev/next arrows
+        pager: false,
+        slideMargin: 0
+    });
+    $('#hero-prev').click(function () {
+        heroCarousel.goToPrevSlide();
+    });
     
-      $('.recog-next').click(function() {
+    $('#hero-next').click(function () {
+        heroCarousel.goToNextSlide();
+    }) ;
+
+}    
+
+const recognitionsCarousel = $('.slider1');
+
+if (recognitionsCarousel.length) {
+    const totalSlides = recognitionsCarousel.children('.slide').length;
+    const slidesToShow = Math.min(7, totalSlides); // Ensure it doesn't exceed total slides
+
+    recognitionsCarousel.bxSlider({
+        slideWidth: 218,
+        minSlides: slidesToShow,
+        maxSlides: slidesToShow,
+        moveSlides: 1, // Move one slide at a time
+        infiniteLoop: true,
+        controls: false,
+        pager: false,
+    });
+    $('.recog-prev').click(function () {
+        recognitionsCarousel.goToPrevSlide();
+    });
+
+    $('.recog-next').click(function () {
         recognitionsCarousel.goToNextSlide();
-      })
-      
-  }
+    })
+
+}
 
 
 
-  
+
 
 
 
@@ -105,20 +107,44 @@ heroCarousel.bxSlider({
 //         maxSlides: 3,
 //         slideMargin: 10
 //       });
-$(document).ready(function(){
-    $("#openModal").click(function(){
+$(document).ready(function () {
+    $("#openModal").click(function () {
         $("body").css("overflow", "hidden"); // Disable scrolling
         $(".overlay1").show(); // Show blue blurry background
         $("#popupForm").addClass("show"); // Move modal to 50%
     });
 
-    $(".close-btn, .overlay").click(function(){
+    $(".close-btn, .overlay").click(function () {
         $("body").css("overflow", "auto"); // Enable scrolling
         $(".overlay1").hide(); // Hide background
         $("#popupForm").removeClass("show"); // Move modal off-screen
     });
 
-    $(".submit-btn").click(function(){
+    $(".submit-btn").click(function () {
         alert("Form Submitted!");
     });
 });
+
+function initMap() {
+    if ($('#map').length > 0) { // Check if the map div exists
+        let location = { lat: 41.6402829, lng: 41.6276066 };
+
+        let map = new google.maps.Map($('#map')[0], { // Use [0] to get the raw DOM element
+            zoom: 17,
+            center: location
+        });
+
+        let marker = new google.maps.Marker({
+            position: location,
+            map: map,
+            icon: 'assets/images/mapicon.png' // Replace with your actual icon path
+        });
+    }
+}
+
+$(document).ready(function () {
+    if ($('#map').length > 0) {
+        initMap();
+    }
+});
+
