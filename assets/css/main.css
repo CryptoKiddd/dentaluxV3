@@ -455,7 +455,7 @@ nav li:hover{
 
 }
 .call-req:hover{
-  background-color: white;
+  background-color:var(--secondary-color);
   /* border: 1px solid #D9E9FF; */
   color: var(--primary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -611,10 +611,21 @@ transform: translateX(-50%);
   font-family: "f-regular";
   text-decoration: underline;
 }
+.hero-carousel-item header a:hover{
+  color: var(--primary-color);
+  transition: 350ms ease;
+}
+.hero-carousel-item header a:hover .icon {
+  background-color: var(--primary-color);
+  margin-left: 15px;
+}
 .carousel-item-btn{
   display: flex;
   gap: 15px;
   align-items: center;
+}
+.hero-carousel-controls .icon{
+  width: 23.65px;
 }
 .carousel-overlay{
   position: absolute;
@@ -883,10 +894,10 @@ padding-left: 20px;
 }
 .submit-btn:hover{
   background-color: var(--secondary-color);
-  color: black;
+  color: var(--primary-color);
 }
 .submit-btn:hover .icon{
-  background-color: black;
+  background-color: var(--primary-color);
 }
 .submit-btn .icon{
   background-color: white;
@@ -1524,16 +1535,23 @@ adgils tu sheucvlit servicepage_is css is qvemot iyos sul
 
 .see-more{
   display: flex;
-  font-family: 'f-regular-caps';
+  font-family: 'f-regular';
   color: var(--primary-color);
   text-decoration: underline;
   gap: 8px;
+  transition: 350ms ease;
   align-items: center;
 }
 .mainpage-services .see-more{
   position: absolute;
   right: 140px;
   bottom: 30px;
+}
+.see-more .icon{
+  background-color: var(--primary-color);
+}
+.see-more:hover{
+ margin-right: -10px;
 }
 /* 
 
@@ -1542,3 +1560,61 @@ service section on mainpage
 
 
 */
+
+
+@media(width < 1537px){
+  .service:hover {
+    gap: 122px;
+}
+  .service-mainpage:hover .service-right{
+    padding-left: 170px;
+    gap: 100px;
+  }
+
+  .contact-bar{
+    gap: 20px;
+  }
+  .contact-bar-socials {
+    margin-left: 40px;
+}
+
+}
+@media(width < 1367px){
+
+  :root {
+  
+    --fullhd-padding: 70px;
+ 
+  
+  }
+  .navigation {
+    padding-left: 0;
+  }
+  .nav-bottom-wrapper{
+    width: 851px;
+   
+  }
+  nav ul{
+    gap: 22px;
+  }
+  .nav-bottom{
+    gap: 39px;
+  }
+  .service-img{
+    width: 402px;
+  }
+  .service {
+    gap: 64px;
+  }
+  .service:hover{
+    gap: 102px;
+  }
+
+  .service-mainpage:hover .service-right{
+    padding-left: 90px;
+    gap: 70px;
+  }
+  .contact-bar{
+    padding-left: 90px;
+  }
+}
