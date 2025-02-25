@@ -148,3 +148,24 @@ $(document).ready(function () {
     }
 });
 
+
+const hamburger = $('#nav-icon1')
+
+if(hamburger.length > 0){
+
+hamburger.click(function(){
+    $(this).toggleClass('open');
+
+    if ($(".navigation").height() < 180) {
+        $(".navigation").animate({ height: "100vh" }, 300);
+        $("body").css("overflow", "hidden"); 
+    } else {
+        $(".navigation").animate({ height: "160px" }, 300);
+        $("body").css("overflow", "auto");
+    }
+});
+}
+
+	
+
+
