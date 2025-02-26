@@ -134,6 +134,7 @@ body {
 img {
   width: 100%;
   height: 100%;
+  
 }
 
 select,
@@ -385,6 +386,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding-left: 61px;
+  z-index: 10000;
 }
 .logo{
   max-width: 306px;
@@ -1188,7 +1190,11 @@ footer ul li{
   .projectpage
   {
     padding-inline: var(--fullhd-padding);
+    margin-top: 160px;
 
+  }
+  .mainpage-services{
+    margin-top: 0;
   }
   .servicepage header p{
     font-size: 46px;
@@ -1319,7 +1325,6 @@ footer ul li{
   max-width: 703px;
   height: 450px;
   width: 100%;
-  padding: 10px;
   transition: 350ms ease;
 
  }
@@ -1577,6 +1582,7 @@ hamburger
   height: 45px;
   position: relative;
   margin: 50px auto;
+  margin-right: 30px;
   -webkit-transform: rotate(0deg);
   -moz-transform: rotate(0deg);
   -o-transform: rotate(0deg);
@@ -1681,6 +1687,7 @@ hamburger
   }
   .navigation {
     padding-left: 0;
+    z-index: 1000;
   }
   .nav-bottom-wrapper{
     width: 851px;
@@ -1719,7 +1726,6 @@ hamburger
     position: absolute;
     left: 0;
     top: 0;
-    z-index: 1;
     background-color: white;
   
     align-items: start;
@@ -1744,6 +1750,7 @@ hamburger
     flex-direction: column;
     align-items: start;
     justify-content: start;
+    padding-inline: 20px;
   }
   nav li{
     text-decoration: underline;
@@ -1764,6 +1771,7 @@ hamburger
   }
   .navigation-socials{
     margin: 0;
+    padding-left: 20px;
   }
   #nav-icon1{
     display: flex;
@@ -1772,4 +1780,122 @@ hamburger
     width: 100%;
     display: flex;
   }
+  
+}
+
+@media (width < 481px){
+  :root {
+  
+    --fullhd-padding: 30px;
+ 
+  
+  }
+  .service p{
+    max-width: 120px;
+  }
+  .index-about main{
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+  }
+  .index-about ul{
+    gap: 15px;
+  }
+  .index-about main ul li{
+    gap: 20px;
+  }
+  .service{
+    gap: 10px;
+  }
+  .service-arr{
+    margin-left: 10px;
+  }
+  .service-img{
+    width: 200px;
+  }
+  .service-right{
+    padding-left: 10px;
+    gap: 20px;
+  }
+  .service:hover {
+    gap: 15px;
+}
+.service-mainpage:hover .service-right {
+  padding-left: 24px;
+  gap: 53px;
+}
+.service p{
+  font-size: 16px;
+}
+.mainpage-services .see-more{
+  right: 30px;
+  bottom: 0;
+}
+.slider1 .slide img{
+  padding-right: 21px;
+  border: none;
+}
+.recognitions-wrapper{
+  overflow: hidden;
+}
+.slider1 .slide p{
+  padding-right: 10px;
+}
+
+
+.recognitions-wrapper .bx-viewport{
+  width: 68%;
+  margin-left: 61px;
+}
+
+footer{
+  flex-direction: column;
+  align-items: start;
+  height: auto;
+  padding-bottom: 70px;
+  gap: 50px;
+}
+.footer-logo {
+  margin-left: -82px;
+  margin-bottom: 0;
+}
+.hero-carousel-item header {
+  max-width: 380px;
+}
+.hero-carousel-controls{
+  top: 68%;
+}
+.navigation{
+  padding-inline: 0;
+}
+.projects{
+  justify-content: center;
+}
+.projects li{width: 100%;  }
+.contact-bar{
+  height: auto;
+  flex-direction: column;
+  align-items: start;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.contactpage main{
+  flex-direction: column-reverse;
+  gap: 50px;
+}
+.contact-bar-socials {
+  margin-left: 0;
+}
+
+
+
+}
+
+
+
+.bx-wrapper img {
+  object-fit: cover;
+}
+.service-img img{
+  object-fit: cover;
 }

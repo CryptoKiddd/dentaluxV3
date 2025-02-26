@@ -70,10 +70,20 @@ const recognitionsCarousel = $('.slider1');
 
 if (recognitionsCarousel.length) {
     const totalSlides = recognitionsCarousel.children('.slide').length;
-    const slidesToShow = Math.min(7, totalSlides); // Ensure it doesn't exceed total slides
+    let  slideWidth = 218
+    let slidesToShow = Math.min(7, totalSlides); // Ensure it doesn't exceed total slides
+    if(window.innerWidth < 480){
+        slideWidth = 150
+         slidesToShow = Math.min(3, totalSlides); // Ensure it doesn't exceed total slides
+
+    }
+    if(window.innerWidth < 401){
+        slideWidth = 120
+
+    }
 
     recognitionsCarousel.bxSlider({
-        slideWidth: 218,
+        slideWidth: slideWidth,
         minSlides: slidesToShow,
         maxSlides: slidesToShow,
         moveSlides: 1, // Move one slide at a time
