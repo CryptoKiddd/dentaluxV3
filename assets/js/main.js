@@ -1,77 +1,100 @@
-//langs dropdown
-const $select = $("#language-select");
-const $dropdown = $(".custom-dropdown");
-const $selectedOption = $dropdown.find(".selected-option");
-const $dropdownOptions = $(".dropdown-options");
-$select.find("option").each(function () {
-    let value = $(this).val();
-    let text = $(this).text();
-    let image = $(this).data("image");
+$(document).ready(function () {
+    const $dropdown = $(".custom-dropdown");
+    const $selectedOption = $dropdown.find(".selected-option");
+    const $dropdownOptions = $(".dropdown-options");
 
-    if (image) {
-        $dropdownOptions.append(
-            `<li data-value="${value}">
-                    <img src="${image}" alt="${text} Flag">
-                </li>`
+    // Get initially selected language (first item in the list)
+    let $initialSelected = $dropdownOptions.find("li").first();
+    let selectedValue = $initialSelected.data("value");
+    let selectedImage = $initialSelected.find("img").attr("src");
+
+    // Set default selected flag
+    $selectedOption.html(
+        `<img src="${selectedImage}"> 
+         <img class="dropdown-arr-langs" src="assets/images/dropdown-arr.png" alt="">`
+    );
+
+    // Hide initially selected language from options
+    $initialSelected.hide();
+
+    // Show dropdown options on click
+    $dropdown.click(function (e) {
+        e.stopPropagation();
+        $dropdownOptions.toggle();
+    });
+
+    // Handle option selection
+    $dropdownOptions.on("click", "li", function () {
+        let selectedValue = $(this).data("value");
+        let selectedImage = $(this).find("img").attr("src");
+
+        // Update selected option UI
+        $selectedOption.html(
+            `<img src="${selectedImage}"> 
+             <img class="dropdown-arr-langs" src="assets/images/dropdown-arr.png" alt="">`
         );
-    }
-});
 
-// Show dropdown options on click
-$dropdown.click(function (e) {
-    e.stopPropagation();
-    $dropdownOptions.toggle();
-});
+        // Show all options first, then hide the newly selected one
+        $dropdownOptions.find("li").show();
+        $(this).hide();
 
-// Handle option selection
-$dropdownOptions.on("click", "li", function () {
-    let selectedImage = $(this).find("img").attr("src");
-
-    $selectedOption.html(`<img src="${selectedImage}"> <img class="dropdown-arr-langs" src="assets/images/dropdown-arr.png" alt="" >`);
-    $dropdownOptions.hide();
-
-
-});
-
-// Hide dropdown if clicked outside
-$(document).click(function (e) {
-    if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
         $dropdownOptions.hide();
-    }
+    });
+
+    // Hide dropdown if clicked outside
+    $(document).click(function (e) {
+        if (!$dropdown.is(e.target) && $dropdown.has(e.target).length === 0) {
+            $dropdownOptions.hide();
+        }
+    });
 });
 
-// Hide original select
-$select.hide();
+
 
 
 
 let heroCarousel = $("#hero-carousel")
-if (heroCarousel.length) {
+if (heroCarousel.length > 0) {
+    function initializeSlider() {
+        let carouselMode = window.innerWidth < 500 ? 'horizontal' : 'vertical';
 
+        if (heroCarousel.data('bxSlider')) {
+            heroCarousel.destroySlider(); // Destroy previous instance before reinitializing
+        }
 
-    heroCarousel.bxSlider({
-        mode: 'vertical',
-        // controls:false,
-        controls: false,   // Hides prev/next arrows
-        pager: false,
-        slideMargin: 0
+        heroCarousel.bxSlider({
+            mode: carouselMode,
+            controls: false,  // Hides prev/next arrows
+            pager: false,
+            slideMargin: 0
+        });
+    }
+
+    // Initialize on page load
+    initializeSlider();
+
+    // Reinitialize on window resize
+    $(window).resize(function () {
+        initializeSlider();
     });
+
+    // Manual controls
     $('#hero-prev').click(function () {
         heroCarousel.goToPrevSlide();
     });
-    
+
     $('#hero-next').click(function () {
         heroCarousel.goToNextSlide();
-    }) ;
+    });
+}
 
-}    
 
 const recognitionsCarousel = $('.slider1');
 
-if (recognitionsCarousel.length) {
+if (recognitionsCarousel.length > 0) {
     const totalSlides = recognitionsCarousel.children('.slide').length;
     let  slideWidth = 218
-    let slidesToShow = Math.min(7, totalSlides); // Ensure it doesn't exceed total slides
+    let slidesToShow = Math.min(9, totalSlides); // Ensure it doesn't exceed total slides
     if(window.innerWidth < 480){
         slideWidth = 150
          slidesToShow = Math.min(3, totalSlides); // Ensure it doesn't exceed total slides
@@ -89,6 +112,7 @@ if (recognitionsCarousel.length) {
         moveSlides: 1, // Move one slide at a time
         infiniteLoop: true,
         controls: false,
+        margin:0,
         pager: false,
     });
     $('.recog-prev').click(function () {
@@ -100,6 +124,7 @@ if (recognitionsCarousel.length) {
     })
 
 }
+
 
 
 
@@ -120,14 +145,14 @@ if (recognitionsCarousel.length) {
 $(document).ready(function () {
     $("#openModal").click(function () {
         $("body").css("overflow", "hidden"); // Disable scrolling
-        $(".overlay1").show(); // Show blue blurry background
-        $("#popupForm").addClass("show"); // Move modal to 50%
+        $(".overlay1").fadeIn(); // Show overlay
+        $("#popupForm").fadeIn().addClass("show"); // Show modal smoothly
     });
 
-    $(".close-btn, .overlay").click(function () {
+    $(".close-btn, .overlay1").click(function () {
         $("body").css("overflow", "auto"); // Enable scrolling
-        $(".overlay1").hide(); // Hide background
-        $("#popupForm").removeClass("show"); // Move modal off-screen
+        $(".overlay1").fadeOut(); // Hide overlay
+        $("#popupForm").fadeOut().removeClass("show"); // Hide modal smoothly
     });
 
     $(".submit-btn").click(function () {
@@ -135,11 +160,12 @@ $(document).ready(function () {
     });
 });
 
+
 function initMap() {
-    if ($('#map').length > 0) { // Check if the map div exists
+    if ($('#map').length > 0) { 
         let location = { lat: 41.6402829, lng: 41.6276066 };
 
-        let map = new google.maps.Map($('#map')[0], { // Use [0] to get the raw DOM element
+        let map = new google.maps.Map($('#map')[0], { 
             zoom: 17,
             center: location
         });
@@ -147,7 +173,7 @@ function initMap() {
         let marker = new google.maps.Marker({
             position: location,
             map: map,
-            icon: 'assets/images/mapicon.png' // Replace with your actual icon path
+            icon: 'assets/images/mapicon.png' 
         });
     }
 }
@@ -160,22 +186,51 @@ $(document).ready(function () {
 
 
 const hamburger = $('#nav-icon1')
+if (hamburger.length > 0) {
+    hamburger.click(function () {
+        $(this).toggleClass('open');
 
-if(hamburger.length > 0){
+        let navigation = $(".navigation");
 
-hamburger.click(function(){
-    $(this).toggleClass('open');
+        if (navigation.height() < 180) {
+            navigation.css("overflow-y", "auto") 
+                .animate({ height: "100vh" }, 300);
 
-    if ($(".navigation").height() < 180) {
-        $(".navigation").animate({ height: "100vh" }, 300);
-        $("body").css("overflow", "hidden"); 
-    } else {
-        $(".navigation").animate({ height: "160px" }, 300);
-        $("body").css("overflow", "auto");
-    }
-});
+            $("body").css("overflow", "hidden"); 
+            navigation.animate({ height: "130px" }, 300, function () {
+                navigation.css("overflow-y", "hidden"); 
+            });
+
+            $("body").css("overflow", "auto");
+        }
+    });
 }
 
-	
 
+$(document).ready(function () {
+    let lastScrollTop = 0;
+    let navigation = $(".navigation");
+
+    navigation.css({ height: "220px", top: "0", transition: "height 0.3s ease-in-out, top 0.3s ease-in-out" });
+
+    $(window).scroll(function () {
+        let currentScroll = $(this).scrollTop();
+
+        if (currentScroll === 0) {
+          
+            navigation.css({ height: "220px", top: "0px" });
+        } else if (currentScroll > lastScrollTop) {
+            if (navigation.height() > 130) {
+                navigation.css({ height: "130px" }); st
+            } else {
+                navigation.css({ top: "-250px" });
+            }
+        } else {
+          
+            navigation.css({ top: "0px", height: "130px" });
+        }
+
+        lastScrollTop = currentScroll;
+    });
+});
 
