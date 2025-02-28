@@ -132,27 +132,17 @@ if (recognitionsCarousel.length > 0) {
 
 
 
-//   let recognitionsCarousel = $(".slider1'")
-
-
-
-//     recognitionsCarousel.bxSlider({
-//         slideWidth: 200,
-//         minSlides: 2,
-//         maxSlides: 3,
-//         slideMargin: 10
-//       });
 $(document).ready(function () {
     $("#openModal").click(function () {
-        $("body").css("overflow", "hidden"); // Disable scrolling
-        $(".overlay1").fadeIn(); // Show overlay
-        $("#popupForm").fadeIn().addClass("show"); // Show modal smoothly
+        $("body").css("overflow", "hidden"); 
+        $(".overlay1").fadeIn(); 
+        $("#popupForm").fadeIn().addClass("show");
     });
 
     $(".close-btn, .overlay1").click(function () {
-        $("body").css("overflow", "auto"); // Enable scrolling
-        $(".overlay1").fadeOut(); // Hide overlay
-        $("#popupForm").fadeOut().removeClass("show"); // Hide modal smoothly
+        $("body").css("overflow", "auto"); 
+        $(".overlay1").fadeOut(); 
+        $("#popupForm").fadeOut().removeClass("show");
     });
 
     $(".submit-btn").click(function () {
@@ -206,22 +196,24 @@ if (hamburger.length > 0) {
     });
 }
 
+if(window.innerWidth > 1050){
 
-$(document).ready(function () {
+
+
     let lastScrollTop = 0;
     let navigation = $(".navigation");
-
+    
     navigation.css({ height: "220px", top: "0", transition: "height 0.3s ease-in-out, top 0.3s ease-in-out" });
-
+    
     $(window).scroll(function () {
         let currentScroll = $(this).scrollTop();
-
+    
         if (currentScroll === 0) {
           
             navigation.css({ height: "220px", top: "0px" });
         } else if (currentScroll > lastScrollTop) {
             if (navigation.height() > 130) {
-                navigation.css({ height: "130px" }); st
+                navigation.css({ height: "130px" }); 
             } else {
                 navigation.css({ top: "-250px" });
             }
@@ -229,8 +221,10 @@ $(document).ready(function () {
           
             navigation.css({ top: "0px", height: "130px" });
         }
-
+    
         lastScrollTop = currentScroll;
     });
-});
+}
+
+
 

@@ -1168,9 +1168,10 @@ text page
 
 .textpage-text {
   display: flex;
+  position: relative;
   flex-direction: column;
   justify-content: space-between;
-  border-left: 2px solid #B9B9B9;
+  
   padding: 5px 0px;
 
   padding-left: 80px;
@@ -1178,23 +1179,40 @@ text page
   max-width: 1012px;
   width: 100%;
   font-size: 16px;
-}
-
-.textpage-text {
   font-family: 'f-regular';
 }
+.textpage-text blockquote{
+  position: relative;
+  height: auto;
+  padding-bottom: 15px;
+}
+.textpage-text blockquote::before{
+  content: '';
+  position: absolute;
+  left: -80px;
+ 
+  width: 2px;
+  background-color: var(--border-color);
+height: 100%;
+
+}
+
 
 .textpage-img {
   width: 398px;
   height: 447px;
 }
 .textpage ul {
-  padding-left: 50px;
+  padding-left: 22px;
   padding-top: 55px;
   display: inline-block;
   padding-bottom: 50px;
-  width: 200px;
 
+
+}
+.textpage ol{
+  list-style-type: numeric;
+  padding-left: 22px;
 }
 
 .textpage ul li{
@@ -1202,13 +1220,11 @@ text page
   color: var(--text-color);
   margin-bottom: 5px;
 }
-.textpage ul:first-of-type li p {
+.textpage ul:first-of-type li  {
   position: relative;
 }
-.textpage ul:first-of-type{
-  padding-left: 103px;
-}
-.textpage ul:first-of-type li p::before {
+
+.textpage ul:first-of-type li::before {
   position: absolute;
   content: '';
   top: 50%;  /* Centers vertically */
@@ -1233,11 +1249,12 @@ text page
   font-family: 'f-regular';
 }
 
-.textpage aside h2 {
+.textpage  h2 {
   color: var(--header-color);
   font-size: 18px;
   font-family: 'f-bold-caps';
-  padding-bottom: 5px;
+  padding-bottom: 11px;
+  padding-top: 27px;
 }
 
 
@@ -1985,7 +2002,11 @@ justify-content: auto;
 .projectpage{
   padding-inline: 160px ;
 }
+.mainpage-services{
+  margin-top: 0;
+}
 /* 
+
 
 
 
@@ -2064,8 +2085,6 @@ justify-content: auto;
     height: 130px;
     width: 100%;
     flex-direction: column;
-    position: absolute;
-    left: 0;
     top: 0;
     background-color: white;
 
@@ -2126,6 +2145,7 @@ justify-content: auto;
 
   .navigation .logo {
     margin-left: -42px;
+    margin-top: 0;
     max-width: 226px;
     height: 130px;
 }
