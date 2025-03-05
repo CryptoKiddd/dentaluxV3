@@ -712,8 +712,9 @@ main page start
 
 .index-about main {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
+  gap: 350px;
   padding-bottom: 70px;
 
   border-bottom: 1px solid var(--border-color);
@@ -1518,13 +1519,13 @@ footer ul li {
 }
 
 .project-img {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   position: relative;
   max-width: 703px;
   height: 450px;
   width: 100%;
   transition: 350ms ease;
-
+/* overflow: hidden; */
 }
 
 .project-img img {
@@ -1534,20 +1535,21 @@ footer ul li {
 }
 
 
-
 .project-img::before,
 .project-img::after {
   content: "";
   position: absolute;
   background: var(--border-color);
   z-index: 2;
+  transition: 550ms ease;
 }
 
 .project-img::before {
   top: -20px;
   left: 0;
   height: calc(100% + 90px);
-  width: 1px
+  width: 1px;  transition: 550ms ease;
+
 }
 
 .project-img::after {
@@ -1556,6 +1558,8 @@ footer ul li {
   height: calc(100% + 90px);
   width: 1px
 }
+.project:hover .project-img img{
+border-radius: 50px;}
 
 .project-img span:nth-child(1) {
   position: absolute;
@@ -2057,11 +2061,14 @@ background: #103974;
 
   padding-bottom: 20px;
   padding-left: 50%;
+  height: 700px;
+  
   
 }
 .project-carousel-wrapper .container{
   display: flex;
-  padding-top: 100px;
+  padding-top: 150px;
+  margin: auto;
   
   
 
@@ -2070,22 +2077,41 @@ background: #103974;
   width: 30vw;
  
   font-size: 18px;
+  margin-right: 50px;
   font-family: 'f-regular';
  color: white;
 }
 .project-carousel-wrapper li a{
   display: flex;
   flex-direction: column;
-  gap: 20px;
   align-items: center;
 }
 .project-carousel-wrapper  li img{
   transition: 350ms ease;
+  border-radius: 20px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
 }
 .project-carousel-wrapper  li p {
-  max-width: 400px;
   width: 100%;
   text-align: center;
+  padding: 15px;
+  
+  /* Glassmorphism effect */
+
+  border-radius: 10px; /* Rounded corners */
+  border: 1px solid white;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-top: none;
+  /* Soft white border */
+  
+  /* Optional: Add some subtle shadow for depth */
+  
+  /* Text styling */
+  color: white; /* White text */
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .project-carousel-wrapper li:hover img{
@@ -2455,7 +2481,70 @@ background: #103974;
   }
 
 
+  .project-carousel-wrapper li{
+    width: 80vw;
+  }
+  .project-carousel-wrapper .image-container{
+    width: 300px;
+  }
+  .servicepage, .projectpage, .contactpage, .textpage{
+    margin-top: 120px;
+  }
+  .project-desc{
+    padding: 12px;
+  }
+  .project-arr{
+    margin-right: 10px;
+  }
+  .projectpage{
+    padding-inline: 30px;
+  }
+  .projectpage header p,.servicepage header p, .textpage header p {
+    width: 100%;
+    font-size: 30px;
+  }
+  .textpage-text{
+    padding-left: 20px;
+  }
+  .textpage-text blockquote::before{
+    left: -20px;
+  }
+  .textpage main{
+    flex-direction: column-reverse;
+  }
+  .textpage-img{
+    width: 100%;
+  }
+  footer{
+    padding-top: 100px;
+    gap: 50px;
+  }
+  .footer-style-li{
+    display: none;
+  }
+  footer header{
+    margin-bottom: 5px;
+  }
+  .service-arr{
+    height: 23px;
+    width: 16px;
+  }
+  .footer-logo{
+    margin-bottom: -70px;
+  }
+  .modal{
+    max-width:100%;
+    height: 650px;
+  }
+  .modal main{
+    flex-direction: column-reverse;
+    gap: 45px;
+    padding-top: 45px;
 
+  }
+  .modal-right p{
+    text-align: left;
+  }
 }
 
 

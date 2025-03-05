@@ -53,26 +53,34 @@ $(document).ready(function () {
 
 
 
-let heroCarousel = $("#hero-carousel")
+let heroCarousel = $("#hero-carousel");
+
 if (heroCarousel.length > 0) {
     function initializeSlider() {
         let carouselMode = window.innerWidth < 500 ? 'horizontal' : 'vertical';
-        let disableScroll = window.innerWidth < 500 ? false: true;
 
-        if (heroCarousel.data('bxSlider')) {
-            heroCarousel.destroySlider(); // Destroy previous instance before reinitializing
+        if (heroCarousel.hasClass("bx-initialized")) {
+            heroCarousel.bxSlider().destroySlider();
         }
 
         heroCarousel.bxSlider({
             mode: carouselMode,
-            controls: false,  // Hides prev/next arrows
+            controls: false, 
             pager: false,
+            touchEnabled: true, 
+            preventDefaultSwipeY: true,
+            preventDefaultSwipeX: true,
             slideMargin: 0,
-            preventDefaultSwipeX: true,  // Keep horizontal swipe working
-            preventDefaultSwipeY: false 
-           
+            auto: true,
+            swipeThreshold: 100
         });
     }
+
+    // Enable page scrolling when swiping
+    $(document).on('touchmove', function(e) {
+        if (e.originalEvent.touches.length > 1) return; // Ignore multi-touch
+        e.stopPropagation(); // Allow vertical scroll
+    });
 
     // Initialize on page load
     initializeSlider();
@@ -91,6 +99,7 @@ if (heroCarousel.length > 0) {
         heroCarousel.goToNextSlide();
     });
 }
+
 
 
 const recognitionsCarousel = $('.slider1');
@@ -118,6 +127,7 @@ if (recognitionsCarousel.length > 0) {
         controls: false,
         margin:10,
         pager: false,
+        auto: true,
     });
     $('.recog-prev').click(function () {
         recognitionsCarousel.goToPrevSlide();
@@ -134,7 +144,7 @@ if (recognitionsCarousel.length > 0) {
 
 
 
-
+// popup
 
 $(document).ready(function () {
     $("#openModal").click(function () {
@@ -215,7 +225,7 @@ if(window.innerWidth > 1050){
     $(window).scroll(function () {
         let currentScroll = $(this).scrollTop();
         if (currentScroll > 200) {
-            navigation.css("background-color", "rgba(16, 57, 116, 0.25)"); 
+            navigation.css("background-color", "white"); 
         } else {
             navigation.css("background-color", "rgba(16, 57, 116, 0.04)"); 
         }
@@ -263,59 +273,30 @@ $(document).ready(function () {
 if ($('.project-carousel-wrapper').length > 0) {
     const container = document.querySelector('.container');
     const sections = gsap.utils.toArray('.container li');
-    const containerWidth = `${sections.length * 30}vw`;
+    const vw = window.innerWidth < 500 ? 80 : 25;
+    const containerWidth = `${sections.length * vw}vw`;
 
     container.style.width = containerWidth;
 
     // Horizontal scrolling animation
-    gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
+    gsap.to(".container", {
+        x: `-${(sections.length - 1) * vw}vw`, // Moves sections left
         ease: "none",
         scrollTrigger: {
-            trigger: ".container",
+            trigger: ".project-carousel-wrapper",
             pin: true,
-            scrub: 1,
-            end: "+=3000"
+            scrub: 4, // Adjust for smoother scrolling
+            end: () => `+=${container.offsetWidth - window.innerWidth}`, // Stops scrolling at the correct point
         }
     });
-
- 
 }
 
-  
-let currentPage = window.location.pathname.split("/").pop(); // Get current page filename
-if(currentPage === "" || currentPage === "index.html"){
 
 
-    gsap.from(".hero-carousel-item h1", {
-        x: -50, // Moves from left (-50px)
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-        delay: 0.5
-    });
 
-    gsap.from(".hero-carousel-item p", {
-        x: -50, // Moves from left
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-        delay: 0.7 // Slightly delayed after h1
-    });
-
-    gsap.from(".hero-carousel-item .carousel-item-btn", {
-        y: 20, // Moves up from below
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out",
-        delay: 1 // Delayed after paragraph for a natural effect
-    });
-
-
-// Ensure GSAP is loaded before running this script
-
-    // Animate the whole navigation appearing from the top
-    gsap.from(".navigation", {
+//ANIMATIONSS
+     // Animate the whole navigation appearing from the top
+     gsap.from(".navigation", {
         y: -50, // Moves down from -50px
         opacity: 0,
         duration: 1,
@@ -351,6 +332,37 @@ if(currentPage === "" || currentPage === "index.html"){
         stagger: 0.3,
         delay: 1.2
     });
+let currentPage = window.location.pathname.split("/").pop(); // Get current page filename
+if(currentPage === "" || currentPage === "index.html"){
+
+
+    gsap.from(".hero-carousel-item h1", {
+        x: -50, // Moves from left (-50px)
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.5
+    });
+
+    gsap.from(".hero-carousel-item p", {
+        x: -50, // Moves from left
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        delay: 0.7 // Slightly delayed after h1
+    });
+
+    gsap.from(".hero-carousel-item .carousel-item-btn", {
+        y: 20, // Moves up from below
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        delay: 1 // Delayed after paragraph for a natural effect
+    });
+
+
+
+ 
 
   //  about us on mainpage
     document.addEventListener("DOMContentLoaded", function () {
@@ -547,65 +559,37 @@ if(currentPage === "" || currentPage === "index.html"){
 
 
 
+ if(currentPage === "projects.html" || currentPage === "blog.html" || currentPage === "news.html"){
+    $(document).ready(function() {
+        gsap.from("header p", {
+            x: -100, 
+            opacity: 0, 
+            duration: 1, 
+            ease: "power2.out"
+        });
 
-   /// smooth scroll
-
- if(currentPage === "projects.html"){
-       // Page Load Animation
-   
-
-    // Header Fade and Bounce
-    gsap.from("header p", {
-        opacity: 0,
-        x: 150,
-        duration: 1,
-        ease: "ease"
-    });
-
-    // Project Cards Fade In and Slide Up
-    gsap.from(".project", {
-        opacity: 0,
-        y: 50,
-        stagger: 0.1,
-        duration: 1,
-        ease: "power4.out"
-    });
-
-    // Pagination Slide-In Animation
-    gsap.from(".pagination", {
-        opacity: 0,
-        y: 30,
-        duration: 0.8,
-        ease: "power2.out"
-    });
-
- 
-
-   
-    // Hover Animation for Project Description
-    gsap.to(".project-desc p", {
-        scale: 1.05,
-        duration: 0.3,
-        ease: "power1.inOut",
-        paused: true,
-        overwrite: true
-    });
-
-  
-
-    // Scroll Animation for Project Descriptions
-    gsap.utils.toArray(".project-desc").forEach(desc => {
-        gsap.from(desc, {
+        gsap.from(".projects li", {
             opacity: 0,
-            y: 30,
+            y: 50,
+            stagger: 0.3,
             duration: 1,
-            ease: "power3.out",
-            scrollTrigger: {
-                trigger: desc,
-                start: "top 80%",
-                end: "bottom top",
-                scrub: 1
-            }
+            ease: "power3.out"
+        });
+
+        gsap.from(".pagination .icon, .pagination a", {
+            opacity: 0,
+            y: 10,
+            stagger: 0.2,
+            duration: 1,
+            ease: "back.out(1.7)"
+        });
+
+        $(".pagination a").on("mouseenter", function() {
+            gsap.to($(this), { scale: 1.2, duration: 0.2, ease: "back.out(1.7)" });
+        });
+
+        $(".pagination a").on("mouseleave", function() {
+            gsap.to($(this), { scale: 1, duration: 0.2, ease: "back.out(1.7)" });
         });
     });
  }
@@ -677,31 +661,7 @@ if(currentPage === "" || currentPage === "index.html"){
  }
 
 
-if(currentPage === "blog.html"){
 
-    gsap.from("section.projectpage header p", {
-        opacity: 0,
-        x: 150,
-        duration: 1.5,
-        ease: "power3.out"
-    });
-
-    // Blog Posts Animation
-
-    // Project Image Animation (Subtle scaling effect)
-    gsap.from(".project-img", {
-        scale: 1.1,
-    
-        // stagger: 0.3,
-        duration: 1,
-        ease: "power2.out"
-    });
-
-    // Project Description Fade In
-   
-
-
-}
 if(currentPage === "contact.html"){
     gsap.from(".contactpage header p", {
         opacity: 0,
