@@ -1,3 +1,4 @@
+// languages dropdown
 $(document).ready(function () {
     const $dropdown = $(".custom-dropdown");
     const $selectedOption = $dropdown.find(".selected-option");
@@ -110,11 +111,11 @@ if (recognitionsCarousel.length > 0) {
     let slidesToShow = Math.min(8, totalSlides); // Ensure it doesn't exceed total slides
     if(window.innerWidth < 480){
         slideWidth = 150
-         slidesToShow = Math.min(3, totalSlides); // Ensure it doesn't exceed total slides
+         slidesToShow = Math.min(2, totalSlides); // Ensure it doesn't exceed total slides
 
     }
     if(window.innerWidth < 401){
-        slideWidth = 120
+        slideWidth = 110
 
     }
 
@@ -164,7 +165,7 @@ $(document).ready(function () {
     });
 });
 
-
+// map on contacts
 function initMap() {
     if ($('#map').length > 0) { 
         let location = { lat: 41.6402829, lng: 41.6276066 };
@@ -199,7 +200,7 @@ if (hamburger.length > 0) {
 
         if (navigation.outerHeight(true) < 180) {
             navigation.css("overflow-y", "auto") 
-                .animate({ height: "100vh" }, 300, function () {
+                .animate({ height: "100%", paddingBottom:50 }, 300, function () {
                     navigation.css("overflow-y", "hidden");
                 });
 
@@ -219,7 +220,8 @@ if(window.innerWidth > 1050){
 
     let lastScrollTop = 0;
     let navigation = $(".navigation");
-    
+    let logo = $(".mobile-wrapper .logo"); // Targeting the logo
+
     navigation.css({ height: "220px", top: "0", transition: "height 0.3s ease-in-out, top 0.3s ease-in-out" });
     
     $(window).scroll(function () {
@@ -232,9 +234,13 @@ if(window.innerWidth > 1050){
         if (currentScroll === 0) {
           
             navigation.css({ height: "220px", top: "0px" });
+            logo.animate({ paddingTop: 0 }, 200); // Reset padding when at the top
+
         } else if (currentScroll > lastScrollTop) {
             if (navigation.height() > 130) {
                 navigation.css({ height: "130px" }); 
+                logo.animate({ paddingTop: 10 }, 200); // Add padding when navigation shrinks
+
             } else {
                 navigation.css({ top: "-250px" });
             }
@@ -287,6 +293,17 @@ if ($('.project-carousel-wrapper').length > 0) {
             pin: true,
             scrub: 4, // Adjust for smoother scrolling
             end: () => `+=${container.offsetWidth - window.innerWidth}`, // Stops scrolling at the correct point
+        }
+    });
+    gsap.from(".project-carousel-wrapper p", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+            trigger: ".project-carousel-wrapper p",
+            start: "top 80%", // Start when the paragraph is 80% in the viewport
+            toggleActions: "play none none none",
         }
     });
 }
