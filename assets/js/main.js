@@ -214,45 +214,98 @@ if (hamburger.length > 0) {
 }
 
 // navigation scroll effect 
-if(window.innerWidth > 1050){
 
 
 
-    let lastScrollTop = 0;
-    let navigation = $(".navigation");
-    let logo = $(".mobile-wrapper .logo"); // Targeting the logo
 
-    navigation.css({ height: "220px", top: "0", transition: "height 0.3s ease-in-out, top 0.3s ease-in-out" });
-    
+let lastScrollTop = 0;
+let navigation = $(".navigation");
+let logo = $(".mobile-wrapper .logo"); // Targeting the logo
+const isMobile = window.innerWidth < 1050;
+
+// Initial navigation setup
+const setNavigationHeight = () => {
+    const height = isMobile ? "130px" : "220px";
+    const top = "0px";
+
+    navigation.css({
+        height: height,
+        top: top,
+        transition: "height 0.3s ease-in-out, top 0.3s ease-in-out"
+    });
+
+    logo.stop().animate({ paddingTop: 0 }, 200); // Reset logo padding on initial load
+};
+
+
+// Initialize navigation height on page load
+setNavigationHeight();
+
+// Update styles on window resize
+
+
+
+if(isMobile){
     $(window).scroll(function () {
         let currentScroll = $(this).scrollTop();
-        if (currentScroll > 200) {
-            navigation.css("background-color", "white"); 
-        } else {
-            navigation.css("background-color", "rgba(16, 57, 116, 0.04)"); 
-        }
+    
+        // Change background color based on scroll position
+        navigation.css("background-color", currentScroll > 200 ? "white" : "rgba(16, 57, 116, 0.04)");
+    
+        // Scroll at the top (reset to initial height)
         if (currentScroll === 0) {
-          
-            navigation.css({ height: "220px", top: "0px" });
-            logo.animate({ paddingTop: 0 }, 200); // Reset padding when at the top
+            setNavigationHeight();
+            logo.stop().animate({ paddingTop: 0, width:120, marginTop:0 }, 200); // Shrink logo when navigation shrinks
+            $('#nav-icon1').animate({ marginTop:0}, 200)
+
 
         } else if (currentScroll > lastScrollTop) {
-            if (navigation.height() > 130) {
-                navigation.css({ height: "130px" }); 
-                logo.animate({ paddingTop: 10 }, 200); // Add padding when navigation shrinks
-
+            // Scrolling down
+            if (navigation.height() > 100) {
+                navigation.css({ height: "100px" });
+                logo.stop().animate({ paddingTop: 0, width:100, marginTop:-12 }, 200); // Shrink logo when navigation shrinks
+                $('#nav-icon1').animate({ marginTop:-12 }, 200)
             } else {
-                navigation.css({ top: "-250px" });
+                navigation.css({ top: "-250px" }); // Hide navigation if already at the minimum height
             }
-        } else {
           
-            navigation.css({ top: "0px", height: "130px" });
+        } else {
+            // Scrolling up
+            navigation.css({ top: "0px", height: "100px" }); // Show navigation and shrink height
         }
     
-        lastScrollTop = currentScroll;
+        lastScrollTop = currentScroll; // Update scroll position
     });
-}
 
+}else{
+    $(window).resize(setNavigationHeight);
+
+$(window).scroll(function () {
+    let currentScroll = $(this).scrollTop();
+
+    // Change background color based on scroll position
+    navigation.css("background-color", currentScroll > 200 ? "white" : "rgba(16, 57, 116, 0.04)");
+
+    // Scroll at the top (reset to initial height)
+    if (currentScroll === 0) {
+        setNavigationHeight();
+    } else if (currentScroll > lastScrollTop) {
+        // Scrolling down
+        if (navigation.height() > 130) {
+            navigation.css({ height: "130px" });
+            logo.stop().animate({ paddingTop: 10 }, 200); // Shrink logo when navigation shrinks
+        } else {
+            navigation.css({ top: "-250px" }); // Hide navigation if already at the minimum height
+        }
+    } else {
+        // Scrolling up
+        navigation.css({ top: "0px", height: "130px" }); // Show navigation and shrink height
+    }
+
+    lastScrollTop = currentScroll; // Update scroll position
+});
+
+}
 
 
 
@@ -478,7 +531,7 @@ if(currentPage === "" || currentPage === "index.html"){
     
         // Header animation (fade in + move up)
         gsap.from(".servicepage header p", {
-            x: 150, 
+            x: -100, 
             opacity: 0,
             duration: 1,
             ease: "power2.out",
@@ -523,7 +576,7 @@ if(currentPage === "" || currentPage === "index.html"){
     
         // Header animation (fade in + move up)
         gsap.from(".servicepage header p", {
-            x: 150, 
+            x: -100, 
             opacity: 0,
             duration: 1,
             ease: "power2.out",
@@ -614,7 +667,7 @@ if(currentPage === "" || currentPage === "index.html"){
  if(currentPage === "textpage.html"){
     gsap.from("header p", {
         opacity: 0,
-        y: -50,
+        x: -100,
         duration: 1.2,
         ease: "power2.out"
     });
@@ -682,9 +735,86 @@ if(currentPage === "" || currentPage === "index.html"){
 if(currentPage === "contact.html"){
     gsap.from(".contactpage header p", {
         opacity: 0,
-        x: 150,
+        x: -100,
         duration: 1.5,
         ease: "power3.out"
     });
+    gsap.from(".contact-bar",{
+        opacity:0,
+        y:75,
+        duration:1.5,
+        ease:"power3.out"
+    })
+
+}
+
+if(currentPage === "mainpage.html"){
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".section-main-navigator",
+            start: "top 80%", // Start animation when section is 80% visible
+            toggleActions: "play none none none"
+        }
+    });
+    
+    // Background image fade-in
+    tl.from(".mainpage-bg", {
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    });
+    
+    // Left triangle slides in
+    tl.from(".mainpage-left-triangle", {
+        x: -100,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    }, "-=0.8");
+    
+    // Right triangle slides in
+    tl.from(".mainpage-right-triangle", {
+        x: 100,
+        opacity: 0,
+        duration: 1,
+        ease: "power2.out"
+    }, "-=0.8");
+    
+    // 🔹 Ensure list items are visible before animating
+    gsap.set(".section-main-navigator ul li", { opacity: 1, y: 0 });
+    
+    // List items slide up and fade-in staggered
+    tl.from(".section-main-navigator ul li", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.3,
+        ease: "power2.out",
+        onComplete: () => {
+            console.log("List items animation completed.");
+        }
+    }, "-=0.5");
+    
+    // Hover effect: scale up list items
+
+    
+    // Additional animation for project section (bottom slide-in)
+    gsap.from(".project-carousel-wrapper p", {
+        y: 50, // Slide up from 50px below
+        opacity: 0, // Start from invisible
+        duration: 1, // Animation duration
+        ease: "power2.out", // Smooth easing
+        scrollTrigger: {
+            trigger: ".project-carousel-wrapper p",
+            start: "top 80%", // Start when paragraph is 80% in viewport
+            toggleActions: "play none none none",
+        }
+    });
+    
+
 
 }
