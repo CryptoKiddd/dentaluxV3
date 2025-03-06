@@ -248,9 +248,10 @@ setNavigationHeight();
 if(isMobile){
     $(window).scroll(function () {
         let currentScroll = $(this).scrollTop();
+        console.log(currentScroll)
     
         // Change background color based on scroll position
-        navigation.css("background-color", currentScroll > 200 ? "white" : "rgba(16, 57, 116, 0.04)");
+        navigation.css("background-color",  "white" );
     
         // Scroll at the top (reset to initial height)
         if (currentScroll === 0) {
@@ -265,7 +266,8 @@ if(isMobile){
                 navigation.css({ height: "100px" });
                 logo.stop().animate({ paddingTop: 0, width:100, marginTop:-12 }, 200); // Shrink logo when navigation shrinks
                 $('#nav-icon1').animate({ marginTop:-12 }, 200)
-            } else {
+            } 
+            if (currentScroll > 200) {
                 navigation.css({ top: "-250px" }); // Hide navigation if already at the minimum height
             }
           
@@ -750,7 +752,13 @@ if(currentPage === "contact.html"){
 
 if(currentPage === "mainpage.html"){
     gsap.registerPlugin(ScrollTrigger);
+    $("body").css("overflow", "hidden");
 
+    if(isMobile){
+        navigation.css({ height: "100px" });
+                logo.stop().animate({ paddingTop: 0, width:100, marginTop:-12 }, 200); // Shrink logo when navigation shrinks
+                $('#nav-icon1').animate({ marginTop:-12 }, 200)
+    }
     gsap.registerPlugin(ScrollTrigger);
 
     const tl = gsap.timeline({

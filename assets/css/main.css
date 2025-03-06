@@ -2408,6 +2408,9 @@ hamburger
 .navigation-mainpage  .selected-option{
   padding: 3px;
 }
+.navigation-mainpage .logo{
+  margin-top: 12px;
+}
 
 .project-carousel-wrapper{
   overflow-x: hidden;
@@ -2773,12 +2776,12 @@ background: #103974;
     width: 100px;
   }
 
-  .section-main-navigator ul li:nth-child(1) {
+  /* .section-main-navigator ul li:nth-child(1) {
     margin-right: -70px;
   }
   .section-main-navigator ul li:nth-child(3) {
     margin-right: 70px;
-  }
+  } */
 
   .service p {
     max-width: 120px;
@@ -3030,8 +3033,12 @@ background: #103974;
   height: 140px;
 }
 .section-main-navigator{
-  margin-top: 130px;
-  height: calc(100vh - 130px);
+  margin-top: 100px;
+  height: calc(100vh - 100px);
+
+}
+.mainpage-right-triangle, .mainpage-left-triangle {
+  display: none;
 }
   /* .slider1 .bx-wrapper{
     max-width: ;
