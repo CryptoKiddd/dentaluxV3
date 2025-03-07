@@ -1986,6 +1986,7 @@ border-radius: 50px;}
   display: block;
   width: 100%;
   height: calc(100vh - 170px);
+  /* height: 100%; */
   margin-top: 170px;
   position: relative;
   overflow:hidden ;
@@ -2874,8 +2875,13 @@ background: #103974;
   }
 
   .hero-carousel-controls {
-    top: 68%;
-    /* rotate: -90deg; */
+    top:400px;
+    rotate: 90deg;
+    align-items: flex-end;
+    justify-content: end;
+    /* background: red; */
+    
+    left: -140px;
   }
 
   .navigation {

@@ -159,6 +159,20 @@
                 navigation.style.transition = "height 0.3s ease-in-out, top 0.3s ease-in-out";
             }
         }
+        if(window.innerWidth < 760){
+            function adjustContentHeight() {
+  const navHeight = document.querySelector('.navigation-mainpage').offsetHeight;
+  const content = document.querySelector('.section-main-navigator');
+  const viewportHeight = window.innerHeight;
+  content.style.height = `${viewportHeight - navHeight}px`;
+}
+
+// Call the function on page load
+window.addEventListener('load', adjustContentHeight);
+
+// Call the function on window resize
+window.addEventListener('resize', adjustContentHeight);
+        }
     });
     </script>
 

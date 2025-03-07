@@ -69,17 +69,17 @@ if (heroCarousel.length > 0) {
             controls: false, 
             pager: false,
             touchEnabled: true, 
-            preventDefaultSwipeY: true,
-            preventDefaultSwipeX: true,
+        
             slideMargin: 0,
             auto: true,
-            swipeThreshold: 100
+            swipeThreshold: 100,
+            touchEnabled: true,  // Enable swipe gestures
+            preventDefaultSwipeX: false,
         });
     }
 
     // Enable page scrolling when swiping
     $(document).on('touchmove', function(e) {
-        if (e.originalEvent.touches.length > 1) return; // Ignore multi-touch
         e.stopPropagation(); // Allow vertical scroll
     });
 
