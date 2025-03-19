@@ -346,10 +346,16 @@ a {
 }
 
 .fb {
-  width: 11px;
+  width: 17px;
   height: 18px;
   -webkit-mask-image: url('../images/fb.svg');
   mask-image: url('../images/fb.svg');
+}
+.insta {
+  width: 17px;
+  height: 18px;
+  -webkit-mask-image: url('../images/insta.svg');
+  mask-image: url('../images/insta.svg');
 }
 
 .linkedin {
@@ -485,16 +491,7 @@ nav ul a.active-navlink{
   width: 992px;
 }
 
-.nav-top li a {
-  font-size: 18px;
-  font-family: 'f-regular';
-  /* color: var(--text-color); */
-}
 
-.nav-top li a:hover {
-  color: var(--primary-color);
-
-}
 
 .nav-bottom {
   background-color: white;
@@ -572,7 +569,7 @@ nav li:hover {
       -ms-flex-align: center;
           align-items: center;
   gap: 80px;
-  margin-bottom: 90px;
+  margin-bottom: 12px
 }
 
 .nav-social-media {
@@ -1422,6 +1419,7 @@ height: 100%;
   font-weight: bold;
   padding-top: 40px;
   padding-bottom: 20px;
+  font-family: 'f-regular-caps';
 }
 
 
@@ -2689,6 +2687,7 @@ padding-bottom: 80px;
 
   nav li {
     text-decoration: underline;
+    border-bottom: 7px;
   }
 
   .nav-bottom-wrapper {
@@ -3289,13 +3288,26 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
+.mobile-service-display{
+  display: none;
+}
 
 /* Responsive Design */
 @media only screen and (max-width: 768px) {
   .working-hours-container {
       height: 100vh;
   }
+  .mobile-service-display{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin-left: 15px;
+    padding-top: 10px;
+    font-size: 16px;
+  }
+
   .tooth3 {
+
       width: 700px;
       height: 700px;
       top: 0;
@@ -3303,6 +3315,10 @@ input:checked + .slider:before {
   .tooth3 img {
       width: 100%;
       height: 100%;
+  }
+ nav ul .change {
+    text-decoration: none;
+    font-size: 13px;
   }
 }
 
@@ -3335,4 +3351,67 @@ input:checked + .slider:before {
       margin-left: 5px;
       margin-right: 0;
   }
+  .hero-slider-wrapper{
+    height: 420px;
+  }
+  .hero-slider-wrapper .bx-viewport{
+    height: 420px  !important ; 
+  }
+  .hero-carousel-item header p{
+    font-size: 16px;
+  }
+  .hero-carousel-controls{
+    top: 266px;
+  }
+  .hero-carousel-item header .car-header{
+    font-size: 34px;
+  }
+  .hero-carousel-controls .icon:hover{
+    background: white;
+  }
+  .index-about main p {
+    font-size: 16px;
+  }
+  .project-carousel-wrapper li{
+    width: 87%;
+  }
+  .project-carousel-wrapper .image-container {
+    width: 254px;
+    height: 293px;
+}
+.team-inner {
+  margin-top: 120px;
+}
+.navigation{
+  z-index: 10000000;
+}
+.mobile-service-display ul li  {
+  font-size: 14px !important;
+  text-decoration: none;
+}
+.nav-bottom{
+  width: 340px;
+  gap: 10px;
+}
+.footer-logo{
+  margin-left: -40px;
+}
+.mobile-wrapper{
+  padding-left: 0;
+}
+.call-req{
+  font-size: 16px;
+  padding-inline: 10px;
+}
+.move-req{
+  position: absolute;
+  top: 45px;
+  right: 120px;
+}
+.textpage-text p{
+  font-size: 16px;
+}
+.textpage-img{
+  height: 345px;
+}
 }

@@ -169,8 +169,8 @@ $(document).ready(function () {
 // map on contacts
 function initMap() {
     if ($('#map').length > 0) {
-        let location = { lat: 41.6402829, lng: 41.6276066 };
-
+        let location = { lat:  41.64453132367018, lng: 41.62433159707863};
+      
         let map = new google.maps.Map($('#map')[0], {
             zoom: 17,
             center: location
@@ -179,7 +179,7 @@ function initMap() {
         let marker = new google.maps.Marker({
             position: location,
             map: map,
-            icon: 'assets/images/mapicon.png'
+            icon: 'assets/images/logo.png'
         });
     }
 }
@@ -265,8 +265,8 @@ if (isMobile) {
             // Scrolling down
             if (navigation.height() > 100) {
                 navigation.css({ height: "100px" });
-                logo.stop().animate({ paddingTop: 0, width: 100, marginTop: -12 }, 200); // Shrink logo when navigation shrinks
-                $('#nav-icon1').animate({ marginTop: -12 }, 200)
+                logo.stop().animate({ paddingTop: 0, width: 100, marginTop: -20 }, 200); // Shrink logo when navigation shrinks
+                $('#nav-icon1').animate({ marginTop: -15 }, 200)
             }
             if (currentScroll > 200) {
                 navigation.css({ top: "-250px" }); // Hide navigation if already at the minimum height
@@ -719,83 +719,20 @@ if (currentPage === "contact.html") {
     })
 
 }
-
-if (currentPage === "mainpage.html") {
-    gsap.registerPlugin(ScrollTrigger);
-    $("body").css("overflow", "hidden");
-
-    if (isMobile) {
-        navigation.css({ height: "100px" });
-        logo.stop().animate({ paddingTop: 0, width: 100, marginTop: -12 }, 200); // Shrink logo when navigation shrinks
-        $('#nav-icon1').animate({ marginTop: -12 }, 200)
-    }
-    gsap.registerPlugin(ScrollTrigger);
-
-    const tl = gsap.timeline({
+$(".project-carousel-wrapper li").each(function (index, element) {
+    gsap.from(element, {
+        opacity: 0,
+        y: 50, // Start slightly below
+        duration: 0.6, // Duration per item
+        ease: "power3.out",
         scrollTrigger: {
-            trigger: ".section-main-navigator",
-            start: "top 80%", // Start animation when section is 80% visible
+            trigger: element, // Trigger each <li> separately
+            start: "top 85%", // Start when each <li> enters 85% of viewport
             toggleActions: "play none none none"
         }
     });
+});
 
-    // Background image fade-in
-    tl.from(".mainpage-bg", {
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
-    });
-
-    // Left triangle slides in
-    tl.from(".mainpage-left-triangle", {
-        x: -100,
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
-    }, "-=0.8");
-
-    // Right triangle slides in
-    tl.from(".mainpage-right-triangle", {
-        x: 100,
-        opacity: 0,
-        duration: 1,
-        ease: "power2.out"
-    }, "-=0.8");
-
-    // 🔹 Ensure list items are visible before animating
-    gsap.set(".section-main-navigator ul li", { opacity: 1, y: 0 });
-
-    // List items slide up and fade-in staggered
-    tl.from(".section-main-navigator ul li", {
-        y: 50,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.3,
-        ease: "power2.out",
-        onComplete: () => {
-            console.log("List items animation completed.");
-        }
-    }, "-=0.5");
-
-    // Hover effect: scale up list items
-
-
-    // Additional animation for project section (bottom slide-in)
-    gsap.from(".project-carousel-wrapper p", {
-        y: 50, // Slide up from 50px below
-        opacity: 0, // Start from invisible
-        duration: 1, // Animation duration
-        ease: "power2.out", // Smooth easing
-        scrollTrigger: {
-            trigger: ".project-carousel-wrapper p",
-            start: "top 80%", // Start when paragraph is 80% in viewport
-            toggleActions: "play none none none",
-        }
-    });
-
-
-
-}
 if ($(".working-hours-wrapper").length > 0) {
 
 
@@ -1090,6 +1027,7 @@ function loadLanguage() {
 document.querySelector('.change-lang').addEventListener('click', function () {
     const currentLanguage = localStorage.getItem('language') === 'en' ? 'ge' : 'en';  // Toggle between Georgian and English
     changeLanguage(currentLanguage);  // Update the page content
+    $(this).text(currentLanguage === 'en' ? "ქარ" : 'EN');
 });
 
 // Load the selected language when the page loads

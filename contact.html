@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/main.css">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDook2Ob-M6wTQQxZdO_F9D1cvbQg79PIo&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDook2Ob-M6wTQQxZdO_F9D1cvbQg79PIo&callback=initMap"
+        async defer></script>
 
 </head>
+
 <body>
-   
+
     <header class="navigation">
 
         <div class="mobile-wrapper">
@@ -29,28 +32,67 @@
                 <ul class="nav-bottom">
                     <li><a href="/" data-key="home">მთავარი</a></li>
 
-                    <li><a href="services.html" data-key="services">სერვისები</a></li>
-                    <li><a href="" data-key="team">ჩვენი გუნდი</a></li>
+                    <li>
+                        <a href="#servicetarget" data-key="services">სერვისები</a>
+
+                        <ul class="mobile-service-display">
+                            <li class="change" ><a href="therapy.html" >
+                                <p class="change" data-key="therapy"> თერაპიული სტომატოლოგია</p></a></li>
+                            <li><a href="implantology.html" >                            
+                                <p class="change" data-key="dental_implants">დენტალური იმპლანტაცია</p>
+                            </a></li>
+                            <li><a href="prosthodontics.html" >                           
+                                <p class="change" data-key="orthodontics">ორთოდონტია</p>
+                            </a></li>
+                            <li><a href="surgery.html"  >                           
+                                <p class="change" data-key="surgery">ქირურგიული სტომატოლოგია</p>
+                            </a></li>
+                            <li><a href="pediatrics.html"  >                          
+                                                       
+                                <p class="change" data-key="children">ბავშვთა სტომატოლოგია</p>
+                            </p>
+                            </a></li>
+                            <li><a href="periodontology.html"  >                          
+                                                       
+                                <p  class="change"data-key="periodontology" >პაროდონტოლოგია</p>
+                            </p>
+                            </a></li>
+                            <li><a href="radiology.html"  >                          
+                                                       
+                                <p class="change" data-key="radiology">ციფრული რადიოლოგია
+                                </p>
+                            </a></li>
+
+
+
+                        </ul>
+                    
+                    
+                    
+                    
+                    </li>
+                    <li><a href="team.html" data-key="team" >ჩვენი გუნდი</a></li>
                     <li><a href="contact.html" data-key="contact">კონტაქტი</a></li>
 
-                    <li><a class="call-req" href="callto:123" data-key="call_request">დაგვირეკე ჩასაწერად</a></li>
+                    <li ><a class="call-req" href="callto:0422200330" data-key="call_request">დაგვირეკე ჩასაწერად</a></li>
                 </ul>
             </div>
         </nav>
         
         <div class="navigation-socials">
-           <div class="change-lang">
+           <div class="change-lang move-req">
             EN
            </div>
             <ul class="nav-social-media">
                 <li>
-                    <a target="_blank" href="">
-                        <div class=" icon linkedin"></div>
+                    <a target="_blank" href="https://www.instagram.com/dentalux.ge">
+                        <div class=" icon insta"></div>
                     </a>
 
                 </li>
                 <li>
-                    <a target="_blank" href="">
+                    <a target="_blank" href="
+                    https://www.facebook.com/ltdDentaLux/?locale=ka_GE">
                         <div class=" icon fb"></div>
                     </a>
                 </li>
@@ -58,40 +100,41 @@
         </div>
 
     </header>
+ 
     <section class="contactpage">
         <header>
-            <p>
+            <p data-key="contact">
                 კონტაქტი
             </p>
         </header>
         <main>
             <ul class="contact-bar">
+
                 <li>
-                    <a target="_blank" href="https://www.whatsapp.com/">
-                        <div class="icon whatsapp" ></div>
-                    </a>
-                    <a href="telto:+995 000 00 00 00">
-                    <div class="icon phone" ></div> 
-                    +995 000 00 00 00   
+                    <a href="telto:+ 0422 200 330">
+                        <div class="icon phone"></div>
+                        0422 200 330
                     </a>
                 </li>
                 <li>
-                    <a href="telto:+995 000 00 00 00">
-                        <div class="icon phone" ></div> 
-                        +995 000 00 00 00   
-                        </a>  
-                </li>
-                <li>
-                    <a href="mailto:">
-<div class="icon mail"></div>
-info@marinems.ge
+                    <a href="mailto:info@dentalux.ge">
+                        <div class="icon mail"></div>
+                        info@dentalux.ge
 
                     </a>
                 </li>
                 <li>
                     <a target="_blank" href="">
                         <div class="icon location"></div>
-                        ლერმონტოვის ქ. 108, ბათუმი
+                        ზურაბ გორგილაძის 69, ბათუმი
+                    </a>
+
+                </li>
+                <li>
+                    <a target="_blank" href="">
+                        <div class="icon location"></div>
+
+                        ფარნავაზ მეფის 140, ბათუმი
                     </a>
 
                 </li>
@@ -99,16 +142,16 @@ info@marinems.ge
                     <a target="_blank" href="">
                         <div class="icon fb "></div>
                     </a>
-                    <a target="_blank"  href="">
+                    <a target="_blank" href="">
                         <div class="icon linkedin"></div>
                     </a>
                 </li>
-                
+
 
             </ul>
             <div class="contact-map">
                 <div id="map"></div>
-                        </div>
+            </div>
         </main>
     </section>
 
@@ -134,14 +177,14 @@ info@marinems.ge
                     </a>
                 </li>
                 <li>
-                    <a href=""> 
+                    <a href="">
                         <p data-key="team">
 
                             ჩვენი გუნდი
                         </p>
                     </a>
                 </li>
-             
+
                 <li class="footer-style-li"></li>
                 <li class="footer-style-li"></li>
             </ul>
@@ -161,11 +204,11 @@ info@marinems.ge
                         </p>
                     </a>
                 </li>
-          
-              
+
+
                 <li>
                     <a href="contact.html">
-                        <p data-key="contact_page">კონტაქტების  გვერდი</p>
+                        <p data-key="contact_page">კონტაქტების გვერდი</p>
                     </a>
                 </li>
                 <li class="footer-style-li"></li>
@@ -187,7 +230,7 @@ info@marinems.ge
                         +995 000 00 00 00
                     </a>
                 </li>
-             
+
                 <li>
 
 
@@ -208,7 +251,7 @@ info@marinems.ge
 
                         </p>
 
-                     
+
                     </a>
                 </li>
                 <li>
@@ -219,7 +262,7 @@ info@marinems.ge
 
                             ფარნავაზ მეფის 140, ბათუმი
                         </p>
-                     
+
                     </a>
                 </li>
                 <li class="footer-socials">
@@ -238,8 +281,13 @@ info@marinems.ge
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script  defer="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script defer src="assets/js/main.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script defer src="assets/js/main.js"></script>
 </body>
+
 </html>
